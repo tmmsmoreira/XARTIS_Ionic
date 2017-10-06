@@ -1,5 +1,8 @@
 {
   "name": "XARTIS_Ionic",
-  "app_id": "",
-  "type": "ionic-angular"
+  "app_id": "33e41f7a",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }

@@ -1,0 +1,74 @@
+<ion-content>
+  <ion-scroll scrollY="true" style="height:200px;
+      background-image:url('../../assets/imgs/porto.jpg');
+      background-position: center center;
+      background-size:cover">
+    <ion-toolbar color="transparent">
+      <button ion-button menuToggle icon-only>
+        <ion-icon name='menu'></ion-icon>
+      </button>
+      <ion-title>
+        Perto
+      </ion-title>
+    </ion-toolbar>
+    <ion-searchbar
+      [(ngModel)]="myInput"
+      [showCancelButton]="shouldShowCancel"
+      (ionInput)="onInput($event)"
+      (ionCancel)="onCancel($event)">
+    </ion-searchbar>
+  </ion-scroll>
+
+  <ion-grid class="places">
+    <ion-row>
+      <ion-col *ngFor="let post of posts" col-4>
+        <span class="place">{{ post.place }}</span>
+        <span class="distance">{{ post.distance }}</span>
+        <img width="100%" [src]="post.img" />
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!--<ion-list [virtualScroll]="posts">
+
+    <ion-item col-4 *virtualItem="let post">
+      <span class="place">{{ post.place }}</span>
+      <span class="distance">{{ post.distance }}</span>
+      <img width="100%" [src]="post.img" />
+    </ion-item>
+
+  </ion-list>-->
+
+  <!--<p>
+    O utilizador poderá utilizar a aplicação sem entrar obrigatoriamente numa rota e
+    consultar nesta secção os locais mais próximos de si através de georreferenciação.
+    O aspeto será em grelha com 15 quadrados: 3 na horizontal por 5 na vertical.
+    Cada quadrado corresponde a um local e apresentará uma imagem do local e a distância
+    a que se encontra. Os locais estarão dispostos do mais próximo para o mais longe num
+    raio de 2 km ou até 45 quadrados (locais). Será possível obter informações premindo
+    sobre o quadrado que abrirá um menu para “mais informações”; “marcar local para visitar
+    mais tarde; “obter direções”).
+
+    O utilizador poderá utilizar a aplicação sem entrar obrigatoriamente numa rota e
+    consultar nesta secção os locais mais próximos de si através de georreferenciação.
+    O aspeto será em grelha com 15 quadrados: 3 na horizontal por 5 na vertical.
+    Cada quadrado corresponde a um local e apresentará uma imagem do local e a distância
+    a que se encontra. Os locais estarão dispostos do mais próximo para o mais longe num
+    raio de 2 km ou até 45 quadrados (locais). Será possível obter informações premindo
+    sobre o quadrado que abrirá um menu para “mais informações”; “marcar local para visitar
+    mais tarde; “obter direções”).
+
+    O utilizador poderá utilizar a aplicação sem entrar obrigatoriamente numa rota e
+    consultar nesta secção os locais mais próximos de si através de georreferenciação.
+    O aspeto será em grelha com 15 quadrados: 3 na horizontal por 5 na vertical.
+    Cada quadrado corresponde a um local e apresentará uma imagem do local e a distância
+    a que se encontra. Os locais estarão dispostos do mais próximo para o mais longe num
+    raio de 2 km ou até 45 quadrados (locais). Será possível obter informações premindo
+    sobre o quadrado que abrirá um menu para “mais informações”; “marcar local para visitar
+    mais tarde; “obter direções”).
+  </p>-->
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll><
+</ion-content>
