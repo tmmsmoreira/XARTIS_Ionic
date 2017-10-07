@@ -1,0 +1,14 @@
+page-nearby {
+  .places {
+    padding: 0;
+
+    .place {
+      display: block;
+    }
+  }
+
+  .distance {
+    display: block;
+    color: color($colors, gray, base);
+  }
+}
