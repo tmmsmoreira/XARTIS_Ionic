@@ -1,76 +1,39 @@
 import { Component } from '@angular/core';
-//import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+
+import { CityPage } from '../city/city';
 
 @Component({
-  selector: 'page-nearby',
-  templateUrl: 'nearby.html'
+  selector: 'page-cities',
+  templateUrl: 'cities.html'
 })
 
-export class NearbyPage {
-  posts = [];
-  obj = {
-    place: "Ponte D. Luís",
-    distance: "6 km",
-    img: "http://www.cruzeiros-douro.pt/userfiles/image/pt/blog/factos-e-mitos-sobre-as-6-pontes-do-porto-luis.jpg"
-  };
-
-  constructor() {
-    for (let i = 0; i < 30; i++) {
-      this.posts.push( this.obj );
+export class CitiesPage {
+  cities = [
+    {
+      name: "Porto",
+      img: "http://www.cruzeiros-douro.pt/userfiles/image/pt/blog/factos-e-mitos-sobre-as-6-pontes-do-porto-luis.jpg"
+    },
+    {
+      name: "Guimarães",
+      img: "https://www.celina-tours.com/images/tours/braga/braga8-slide.jpg"
+    },
+    {
+      name: "Viana do Castelo",
+      img: "https://www.caminhoportosantiago.com/wp-content/uploads/2015/08/vianacastelo.jpg"
+    },
+    {
+      name: "Braga",
+      img: "http://www.meliabraga.com/Files/Images/Melia/Braga/Paginas/Braga/03.jpg"
     }
+  ];
+
+  constructor(public navCtrl: NavController) {
+
   }
 
-  doInfinite(infiniteScroll) {
-    console.log('Begin async operation');
-
-    setTimeout(() => {
-      for (let i = 0; i < 30; i++) {
-        this.posts.push( this.obj );
-      }
-
-      console.log('Async operation has ended');
-      infiniteScroll.complete();
-    }, 500);
+  itemSelected(item) {
+    this.navCtrl.push(CityPage, item);
   }
-
-  /*constructor(public navCtrl: NavController) {
-    this.posts = [
-      {
-        place: "Ponte D. Luís",
-        distance: "6 km",
-        img: "http://www.cruzeiros-douro.pt/userfiles/image/pt/blog/factos-e-mitos-sobre-as-6-pontes-do-porto-luis.jpg"
-      },
-      {
-        place: "Ponte D. Luís",
-        distance: "6 km",
-        img: "http://www.cruzeiros-douro.pt/userfiles/image/pt/blog/factos-e-mitos-sobre-as-6-pontes-do-porto-luis.jpg"
-      },
-      {
-        place: "Ponte D. Luís",
-        distance: "6 km",
-        img: "http://www.cruzeiros-douro.pt/userfiles/image/pt/blog/factos-e-mitos-sobre-as-6-pontes-do-porto-luis.jpg"
-      },
-      {
-        place: "Ponte D. Luís",
-        distance: "6 km",
-        img: "http://www.cruzeiros-douro.pt/userfiles/image/pt/blog/factos-e-mitos-sobre-as-6-pontes-do-porto-luis.jpg"
-      },
-      {
-        place: "Ponte D. Luís",
-        distance: "6 km",
-        img: "http://www.cruzeiros-douro.pt/userfiles/image/pt/blog/factos-e-mitos-sobre-as-6-pontes-do-porto-luis.jpg"
-      },
-      {
-        place: "Ponte D. Luís",
-        distance: "6 km",
-        img: "http://www.cruzeiros-douro.pt/userfiles/image/pt/blog/factos-e-mitos-sobre-as-6-pontes-do-porto-luis.jpg"
-      },
-      {
-        place: "Ponte D. Luís",
-        distance: "6 km",
-        img: "http://www.cruzeiros-douro.pt/userfiles/image/pt/blog/factos-e-mitos-sobre-as-6-pontes-do-porto-luis.jpg"
-      }
-    ];
-  }*/
 }
 

@@ -1,24 +1,20 @@
-<ion-content padding>
-  <h2>Compras</h2>
+<ion-content>
+  <ion-scroll class="page-header" scrollY="true" color='primary' [ngStyle]="{ 'height': '130px' }">
+    <ion-footer>
+      <ion-toolbar color="transparent">
+        <ion-title>
+          <h1>Compras</h1>
+        </ion-title>
+      </ion-toolbar>
+    </ion-footer>
 
-  <p>A aplicação, no caso de o utilizador autorizar, irá enviar convites (através de notificações)
-    a georreferenciação sempre que o utilizador se encontre perto de localidades mesmo que não esteja
-    a utilizar a aplicação. EX: “Encontra-se a 5km da localidade de X. Abra para mais informações”,
-    esta notificação apenas será enviada quando o utilizador viaje pelo Douro ou nas margens do Rio
-    Douro. Ao abrir a notificação receberá breves informações sobre o local com possibilidade de obter
-    indicações para chegar ao mesmo.
-  </p>
+  </ion-scroll>
 
-  <ion-list>
-    <ion-list-header>Os tipos de compras serão:</ion-list-header>
-    <ion-item>Restauração</ion-item>
-    <ion-item>Hotelaria</ion-item>
-    <ion-item>Comércio local</ion-item>
-    <ion-item>Artesanato</ion-item>
-    <ion-item>Cultura</ion-item>
-    <ion-item>Desportos</ion-item>
-    <ion-item>Transportes</ion-item>
-    <ion-item>Museus</ion-item>
-    <ion-item>Vinhos</ion-item>
+  <ion-list no-lines class="main-list">
+    <button class="main-item" ion-item *ngFor="let item of purchases" (click)="itemSelected(item)" [ngStyle]="{ 'background-image': 'url(' + item.img + ')'}">
+      <div style="height:100%;width:100%;background:rgba(0,0,0,0.5)"></div>
+      <h1><b>{{ item.name }}</b></h1>
+
+    </button>
   </ion-list>
 </ion-content>

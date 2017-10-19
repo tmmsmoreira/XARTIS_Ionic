@@ -1,14 +1,20 @@
-<ion-content padding>
-  <h2>Rotas</h2>
+<ion-content>
+  <ion-scroll class="page-header" scrollY="true" color='primary' [ngStyle]="{ 'height': '130px' }">
+    <ion-footer>
+      <ion-toolbar color="transparent">
+        <ion-title>
+          <h1>Rotas</h1>
+        </ion-title>
+      </ion-toolbar>
+    </ion-footer>
 
-  <p>Nesta opção irão estar percursos predefinidos e organizados por tipos de interesse,
-    utilizando a georreferenciação, e poderão ser seleccionados num sub menu que poderá conjugar:
-  </p>
+  </ion-scroll>
 
-  <ion-list>
-    <ion-item>Rota de Arquitetura</ion-item>
-    <ion-item>Rota Vinícola</ion-item>
-    <ion-item>Espaços Verdes</ion-item>
-    <ion-item>Arte Urbana (Grafitis, Azulejos, Esculturas, Relevos, etc)</ion-item>
+  <ion-list no-lines class="main-list">
+    <button class="main-item" ion-item *ngFor="let item of routes" (click)="itemSelected(item)" [ngStyle]="{ 'background-image': 'url(' + item.img + ')'}">
+      <div style="height:100%;width:100%;background:rgba(0,0,0,0.5)"></div>
+      <h1><b>{{ item.name }}</b></h1>
+
+    </button>
   </ion-list>
 </ion-content>
