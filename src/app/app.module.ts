@@ -10,6 +10,7 @@ import { RoutesPage } from '../pages/routes/routes';
 import { PurchasesPage } from '../pages/purchases/purchases';
 
 import { CityPageModule } from '../pages/city/city.module';
+import { RoutePageModule } from '../pages/route/route.module';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -30,7 +31,8 @@ import { Camera } from '@ionic-native/camera';
   imports: [
     BrowserModule,
     IonicModule.forRoot(Xartis),
-    CityPageModule
+    CityPageModule,
+    RoutePageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

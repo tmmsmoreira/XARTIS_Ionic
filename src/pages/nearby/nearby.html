@@ -1,74 +1,93 @@
 <ion-content>
-  <ion-scroll scrollY="true" style="height:200px;
-      background-image:url('../../assets/imgs/porto.jpg');
-      background-position: center center;
-      background-size:cover">
+  <ion-scroll scrollY="true" [ngStyle]="{
+      'height': '130px',
+      'background-image': 'url(https://www.celina-tours.com/images/tours/porto-noite/porto-noite1-slide.jpg)',
+      'background-position': 'center center',
+      'background-size': 'cover'
+    }">
     <ion-toolbar color="transparent">
-      <button ion-button menuToggle icon-only>
-        <ion-icon name='menu'></ion-icon>
-      </button>
       <ion-title>
-        Perto
+        <h1>Por Perto</h1>
       </ion-title>
     </ion-toolbar>
-    <ion-searchbar
-      [(ngModel)]="myInput"
-      [showCancelButton]="shouldShowCancel"
-      (ionInput)="onInput($event)"
-      (ionCancel)="onCancel($event)">
-    </ion-searchbar>
+
+    <ion-footer>
+      <ion-toolbar color="transparent">
+        <ion-title>
+          <h4>Você está no Porto</h4>
+        </ion-title>
+      </ion-toolbar>
+    </ion-footer>
   </ion-scroll>
-
-  <ion-grid class="places">
-    <ion-row>
-      <ion-col *ngFor="let post of posts" col-4>
-        <span class="place">{{ post.place }}</span>
-        <span class="distance">{{ post.distance }}</span>
-        <img width="100%" [src]="post.img" />
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <!--<ion-list [virtualScroll]="posts">
-
-    <ion-item col-4 *virtualItem="let post">
+  <ion-row>
+    <ion-col *ngFor="let post of posts" col-4>
       <span class="place">{{ post.place }}</span>
       <span class="distance">{{ post.distance }}</span>
       <img width="100%" [src]="post.img" />
-    </ion-item>
+    </ion-col>
+  </ion-row>
 
-  </ion-list>-->
+  <div style="padding-left: 30px">
+    <h1 color="white">Arquitetura</h1>
+    <ion-slides #slideArquitect style="height:120px;">
+      <ion-slide *ngFor="let item of arquitecture">
+        <ion-grid no-padding>
+          <ion-row>
+            <ion-col col-12 [ngStyle]="{
+              'height': '80px',
+              'background-image': 'url(' + item.img + ')',
+              'background-position': 'center center',
+              'background-size': 'cover'
+            }"
+            ></ion-col>
+            <ion-col col-12>
+              <ion-grid>
+                <ion-row>
+                  <ion-col no-padding col-8>
+                    <h6 no-margin text-left style="font-size: 0.8em;">{{ item.name }}</h6>
+                  </ion-col>
+                  <ion-col no-padding col-4>
+                    <h6 text-right style="font-size: 0.6em;color:gray">{{ item.distance }}</h6>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+    </ion-slides>
 
-  <!--<p>
-    O utilizador poderá utilizar a aplicação sem entrar obrigatoriamente numa rota e
-    consultar nesta secção os locais mais próximos de si através de georreferenciação.
-    O aspeto será em grelha com 15 quadrados: 3 na horizontal por 5 na vertical.
-    Cada quadrado corresponde a um local e apresentará uma imagem do local e a distância
-    a que se encontra. Os locais estarão dispostos do mais próximo para o mais longe num
-    raio de 2 km ou até 45 quadrados (locais). Será possível obter informações premindo
-    sobre o quadrado que abrirá um menu para “mais informações”; “marcar local para visitar
-    mais tarde; “obter direções”).
+    <h1 color="white">Rotas</h1>
+    <ion-slides #slideRoutes style="height:120px;">
+      <ion-slide *ngFor="let item of arquitecture">
+        <ion-grid no-padding>
+          <ion-row>
+            <ion-col col-12 [ngStyle]="{
+              'height': '80px',
+              'background-image': 'url(' + item.img + ')',
+              'background-position': 'center center',
+              'background-size': 'cover'
+            }"
+            ></ion-col>
+            <ion-col col-12>
+              <ion-grid>
+                <ion-row>
+                  <ion-col no-padding col-8>
+                    <h6 no-margin text-left style="font-size: 0.8em;">{{ item.name }}</h6>
+                  </ion-col>
+                  <ion-col no-padding col-4>
+                    <h6 text-right style="font-size: 0.6em;color:gray">{{ item.distance }}</h6>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+    </ion-slides>
+  </div>
 
-    O utilizador poderá utilizar a aplicação sem entrar obrigatoriamente numa rota e
-    consultar nesta secção os locais mais próximos de si através de georreferenciação.
-    O aspeto será em grelha com 15 quadrados: 3 na horizontal por 5 na vertical.
-    Cada quadrado corresponde a um local e apresentará uma imagem do local e a distância
-    a que se encontra. Os locais estarão dispostos do mais próximo para o mais longe num
-    raio de 2 km ou até 45 quadrados (locais). Será possível obter informações premindo
-    sobre o quadrado que abrirá um menu para “mais informações”; “marcar local para visitar
-    mais tarde; “obter direções”).
-
-    O utilizador poderá utilizar a aplicação sem entrar obrigatoriamente numa rota e
-    consultar nesta secção os locais mais próximos de si através de georreferenciação.
-    O aspeto será em grelha com 15 quadrados: 3 na horizontal por 5 na vertical.
-    Cada quadrado corresponde a um local e apresentará uma imagem do local e a distância
-    a que se encontra. Os locais estarão dispostos do mais próximo para o mais longe num
-    raio de 2 km ou até 45 quadrados (locais). Será possível obter informações premindo
-    sobre o quadrado que abrirá um menu para “mais informações”; “marcar local para visitar
-    mais tarde; “obter direções”).
-  </p>-->
-
-  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+  <!--<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+  </ion-infinite-scroll>-->
 </ion-content>

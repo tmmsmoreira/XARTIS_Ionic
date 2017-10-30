@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+import { RoutePage } from '../route/route';
+
 @Component({
   selector: 'page-contact',
   templateUrl: 'routes.html'
@@ -29,4 +31,7 @@ export class RoutesPage {
 
   }
 
+  itemSelected(item) {
+    this.navCtrl.push(RoutePage, item);
+  }
 }

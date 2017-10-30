@@ -11,7 +11,7 @@
   </ion-scroll>
 
   <ion-list no-lines class="main-list">
-    <button class="main-item" ion-item *ngFor="let item of cities" (click)="itemSelected(item)" [ngStyle]="{ 'background-image': 'url(' + item.img + ')'}">
+    <button class="main-item" ion-item *ngFor="let item of cities" (click)="itemSelected(item)" [ngStyle]="{ 'background-image':'url(' + item.img + ')'} ">
       <h1><b>{{ item.name }}</b></h1>
     </button>
   </ion-list>
