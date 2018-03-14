@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { ViewChild } from '@angular/core';
-import { Slides } from 'ionic-angular';
-//import { NavController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams, Slides } from 'ionic-angular';
+
+import { MapPage } from '../map/map';
 
 @Component({
   selector: 'page-nearby',
@@ -17,22 +17,38 @@ export class NearbyPage {
     {
       name: "Estação de S. Bento",
       distance: "30m",
-      img: "https://drive.google.com/uc?export=jpg&id=0ByynpcaAWr_EbWhIS05HZ2VaQlE"
+      img: "https://drive.google.com/uc?export=jpg&id=0ByynpcaAWr_EbWhIS05HZ2VaQlE",
+      coords: {
+        lat: 41.14283,
+        long: -8.6127193
+      }
     },
     {
       name: "Sé do Porto",
       distance: "30m",
-      img: "https://www.dinheirovivo.pt/wp-content/uploads/2017/01/porto-se-cathedral-view.jpg"
+      img: "https://www.dinheirovivo.pt/wp-content/uploads/2017/01/porto-se-cathedral-view.jpg",
+      coords: {
+        lat: 41.1456697,
+        long: -8.6133723
+      }
     },
     {
       name: "Casa da Música",
       distance: "30m",
-      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Casamusicaexterior.jpg/1200px-Casamusicaexterior.jpg"
+      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Casamusicaexterior.jpg/1200px-Casamusicaexterior.jpg",
+      coords: {
+        lat: 41.158885,
+        long: -8.6328847
+      }
     }
   ];
 
-  constructor() {
+  constructor(public navCtrl: NavController) {
 
+  }
+
+  itemSelected(item) {
+    this.navCtrl.push(MapPage, item);
   }
 
   ngAfterViewInit() {
@@ -59,45 +75,5 @@ export class NearbyPage {
       infiniteScroll.complete();
     }, 500);*/
   }
-
-  /*constructor(public navCtrl: NavController) {
-    this.posts = [
-      {
-        place: "Ponte D. Luís",
-        distance: "6 km",
-        img: "http://www.cruzeiros-douro.pt/userfiles/image/pt/blog/factos-e-mitos-sobre-as-6-pontes-do-porto-luis.jpg"
-      },
-      {
-        place: "Ponte D. Luís",
-        distance: "6 km",
-        img: "http://www.cruzeiros-douro.pt/userfiles/image/pt/blog/factos-e-mitos-sobre-as-6-pontes-do-porto-luis.jpg"
-      },
-      {
-        place: "Ponte D. Luís",
-        distance: "6 km",
-        img: "http://www.cruzeiros-douro.pt/userfiles/image/pt/blog/factos-e-mitos-sobre-as-6-pontes-do-porto-luis.jpg"
-      },
-      {
-        place: "Ponte D. Luís",
-        distance: "6 km",
-        img: "http://www.cruzeiros-douro.pt/userfiles/image/pt/blog/factos-e-mitos-sobre-as-6-pontes-do-porto-luis.jpg"
-      },
-      {
-        place: "Ponte D. Luís",
-        distance: "6 km",
-        img: "http://www.cruzeiros-douro.pt/userfiles/image/pt/blog/factos-e-mitos-sobre-as-6-pontes-do-porto-luis.jpg"
-      },
-      {
-        place: "Ponte D. Luís",
-        distance: "6 km",
-        img: "http://www.cruzeiros-douro.pt/userfiles/image/pt/blog/factos-e-mitos-sobre-as-6-pontes-do-porto-luis.jpg"
-      },
-      {
-        place: "Ponte D. Luís",
-        distance: "6 km",
-        img: "http://www.cruzeiros-douro.pt/userfiles/image/pt/blog/factos-e-mitos-sobre-as-6-pontes-do-porto-luis.jpg"
-      }
-    ];
-  }*/
 }
 

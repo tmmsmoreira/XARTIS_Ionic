@@ -12,7 +12,7 @@
     </ion-toolbar>
 
     <ion-footer>
-      <ion-toolbar color="transparent">
+      <ion-toolbar color="transparent" style="border-top:0">
         <ion-title>
           <h4>Você está no Porto</h4>
         </ion-title>
@@ -30,7 +30,7 @@
   <div style="padding-left: 30px">
     <h1 color="white">Arquitetura</h1>
     <ion-slides #slideArquitect style="height:120px;">
-      <ion-slide *ngFor="let item of arquitecture">
+      <ion-slide *ngFor="let item of arquitecture" (click)="itemSelected(item)">
         <ion-grid no-padding>
           <ion-row>
             <ion-col col-12 [ngStyle]="{
@@ -59,7 +59,7 @@
 
     <h1 color="white">Rotas</h1>
     <ion-slides #slideRoutes style="height:120px;">
-      <ion-slide *ngFor="let item of arquitecture">
+      <ion-slide *ngFor="let item of arquitecture" (click)="itemSelected(item)">
         <ion-grid no-padding>
           <ion-row>
             <ion-col col-12 [ngStyle]="{
